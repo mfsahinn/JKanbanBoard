@@ -160,12 +160,5 @@ jKanban use [dragula](https://github.com/bevacqua/dragula) for drag&drop
 ## Develop
 Clone the repo then use `npm install` for download all the dependencies then launch `npm run build` for build the project
 
-### Pull Requests?
-I'd love them!
 
-### Comments?
-Let's hear them! (The nice ones please!)
-
-### Me?
-In case you're interested I'm [@riktarweb](http://twitter.com/riktarweb)
 
