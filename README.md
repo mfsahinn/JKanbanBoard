@@ -1,12 +1,28 @@
+# What does the project do?
+
+It performs drag and drop operation using Jkanban.
+
+1. Extra Feature
+   * ### When you drag and drop, you can see the IDs and all other features of the carts in the console as a javascript array.
+   * ### Fully compatible with Bootstrap 5.
+   * ### Fully editable.
+   * ### Picture can be added.
+
+  
+# How to use?
+### example / index.html can be used from within.
+
+
+
+
+
+----------------------------------
 # jKanban
 
 > Javascript plugin for Kanban boards
 
 jKanban allow you to create and manage Kanban Board in your project!
 
-Please try out the live [demo][1]!
-
-[1]: http://www.riccardotartaglia.it/jkanban/
 
 ## Install
 Clone the repo and use the javascript and the css files in the `dist` folder.
