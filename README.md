@@ -4,11 +4,16 @@ It performs drag and drop operation using Jkanban.
 
 1. Extra Feature
    * ### When you drag and drop, you can see the IDs and all other features of the carts in the console as a javascript array.
+   * ### Cards can be replaced both within themselves and the main inclusive cards within themselves.
    * ### Fully compatible with Bootstrap 5.
    * ### Fully editable.
    * ### Picture can be added.
 
-  
+  ![image](https://github.com/mfsahinn/JKanbanBoard/assets/52896047/9d1355d0-acd2-4768-a92b-ae7c291464d9)
+
+
+  <img width="509" alt="image" src="https://github.com/mfsahinn/JKanbanBoard/assets/52896047/f96507b4-6684-4aaf-b127-97f04222104b">
+
 # How to use?
 ### example / index.html can be used from within.
 
