@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Title</title>
+  <link rel="stylesheet" href="../dist/jkanban.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+
+  <style>
+    body {
+      font-family: "Lato";
+      margin: 0;
+      padding: 0;
+    }
+
+    #myKanban {
+      overflow-x: auto;
+      padding: 20px 0;
+    }
+
+    .custom-button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 7px 15px;
+      margin: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .kanban-item {
+      word-break: break-word;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .kanban-item .item-buttons {
+      margin-top: 10px;
+    }
+
+    .kanban-item .item-buttons button {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myKanban">
+
+  </div>
+
+  <script src="../dist/jkanban.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <script>
+  const boards = [
+  {
+    id: "_todo",
+    title: "To Do",
+    item: [
+      {
+        id: "_test_1",
+          Priority: "Priority", 
+          Header: "Header", 
+          Content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+          StartDate: "23/01/2023", 
+          EndDate: "23/01/2023", 
+          IsCompleted: "Süre Tamamlandı", 
+          Comments: "5", 
+          Progress:20,
+          images:"https://images.unsplash.com/photo-1494260629490-28c1e8e6f388?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=886e20939894ef5dafc54e0cf0cae59d&auto=format&fit=crop&w=1950&q=80",
+
+        members: [
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+        ],
+        tags: [
+          {content:"test",color:"primary"},
+          {content:"test1",color:"danger"},
+          {content:"test2",color:"info"},
+          {content:"test3",color:"danger"},
+          {content:"test4",color:"primary"},
+          {content:"test5",color:"danger"},
+          {content:"test6",color:"secondary"},
+          {content:"test7",color:"danger"},
+          {content:"test8",color:"primary"},
+          {content:"test9",color:"danger"},
+          {content:"test10",color:"primary"},
+          {content:"test11",color:"danger"}
+
+        ],
+      }
+      
+    ],
+  },
+  {
+    id: "_working",
+    title: "Working",
+    item: [
+    {
+        id: "_test_2",
+          Priority: "Priority", 
+          Header: "Header", 
+          Content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 
+          StartDate: "23/01/2023", 
+          EndDate: "23/01/2023", 
+          IsCompleted: "Süre Tamamlandı", 
+          Comments: "5", 
+          Progress:null,
+          images:"https://images.unsplash.com/photo-1494260629490-28c1e8e6f388?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=886e20939894ef5dafc54e0cf0cae59d&auto=format&fit=crop&w=1950&q=80",
+
+        members: [
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+          "https://mdbootstrap.com/img/new/avatars/2.jpg",
+        ],
+        tags: [
+          {content:"test",color:"primary"},
+          {content:"test1",color:"danger"},
+          {content:"test2",color:"info"},
+          {content:"test3",color:"danger"},
+          {content:"test4",color:"primary"},
+          {content:"test5",color:"danger"},
+          {content:"test6",color:"secondary"},
+          {content:"test7",color:"danger"},
+          {content:"test8",color:"primary"},
+          {content:"test9",color:"danger"},
+          {content:"test10",color:"primary"},
+          {content:"test11",color:"danger"}
+
+        ],
+      }
+    ],
+  },
+  {
+    id: "_done",
+    title: "Done",
+    item: [],
+  },
+];
+
+var KanbanTest = new jKanban({
+  element: "#myKanban",
+  gutter: "10px",
+  widthBoard: "450px",
+  dropEl: function (el, target, source, sibling) {
+    setTimeout(function () {
+      updateItemOrders(target.parentElement);
+      updateAllBoardOrders();
+      console.log(getBoardState());
+    }, 0);
+  },
+  dropBoard: function (el, source) {
+    setTimeout(function () {
+      updateAllBoardOrders();
+      console.log(getBoardState());
+    }, 0);
+  },
+  boards: boards.map(board => ({
+    id: board.id,
+    title: `<span class="content">${board.title}</span>
+              <div class="dropdown float-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_${board.id}" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton_${board.id}">
+                  <li><a class="dropdown-item" href="#" onclick="editItem('${board.id}')">Edit</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="deleteItem('${board.id}')">Delete</a></li>
+                </ul>
+              </div>`,
+    class: board.class,
+    item: board.item.map(item => ({
+      id: item.id,
+      title: `
+      <div class="row">
+        <div class="col-md-12">
+            <img src="${item.images}" class="img-fluid w-100">
+          </div>
+        </div>
+
+        <div class="row mt-4">
+        <div class="col-md-8 d-flex justify-content-start align-items-center mb-2">
+            <span class="badge bg-warning">${item.Priority}</span>
+
+          </div>
+          <div class="col-md-4 d-flex justify-content-end align-items-center mb-2">
+            <div class="dropdown float-end">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_${item.id}" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton_${item.id}">
+                  <li><a class="dropdown-item" href="#" onclick="editItem('${item.id}')">Edit</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="deleteItem('${item.id}')">Delete</a></li>
+                </ul>
+              </div>
+          </div>
+          </div>
+        </div>
+
+
+        <div class="d-flex align-items-start mb-2">
+          <div class="d-flex flex-column align-items-start">
+            <span style="font-weight: 700;font-size: 20px;" class="font-weight-bold">${item.Header}</span>
+          </div>
+        </div>
+
+        ${item.tags && item.tags.length > 0 ? 
+          `<div class="row"> 
+                <div class="col-md-12">
+                 ${item.tags.map(tag => `<span class="badge bg-${tag.color}">${tag.content}</span>`).join('')}
+               </div>
+           </div>`: ''}
+
+        <div class="d-flex align-items-center mt-3">
+          <div class="d-flex flex-column align-items-start">
+            <span style="text-align:justify;">${item.Content}</span>
+          </div>
+        </div>
+        
+ 
+
+        ${item.members && item.members.length > 0 ? 
+          `<div class="row mt-2"> 
+                <div class="col-md-12">
+                 ${item.members.map(image => `<img src="${image}" class="rounded-circle" style="width: 20px;" alt="">`).join('')}
+               </div>
+           </div>`: ''}
+
+
+        ${item.Progress != null ? 
+          `  <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:${item.Progress}%;" aria-valuenow="${item.Progress}" aria-valuemin="0" aria-valuemax="100">${item.Progress}%</div>
+                </div>
+              </div>
+           </div>`: ''}
+
+          
+
+     
+      
+        <div class="row mt-4">
+              <div class="col-md-6 d-flex justify-content-center">
+                <span class="badge bg-warning">Start Date : ${item.StartDate}</span>
+              </div>
+              <div class="col-md-6 d-flex justify-content-center">
+                <span class="badge bg-warning">End Date : ${item.EndDate}</span>
+              </div>
+            </div>
+ 
+            <div class="row mt-4">
+              <div class="col-md-12 d-flex justify-content-end">
+                <span class="badge bg-warning">Comment : ${item.Comments}</span>
+              </div>
+            </div>
+      `,
+    })),
+  })),
+});
+
+
+
+    function updateItemOrders(board) {
+      var items = board.querySelectorAll('.kanban-item');
+      items.forEach(function (item, index) {
+        item.dataset.order = parseInt(index) + 1;
+      });
+    }
+
+    function updateAllBoardOrders() {
+      var boards = document.querySelectorAll('.kanban-board');
+      boards.forEach(function (board, index) {
+        board.dataset.order = parseInt(index) + 1;
+        updateDataOrder(board);
+      });
+    }
+
+    function updateDataOrder(board) {
+      var items = board.querySelectorAll('.kanban-item');
+      items.forEach(function (item, index) {
+        item.dataset.order = parseInt(index) + 1;
+      });
+    }
+
+    function getBoardState() {
+      var boards = document.querySelectorAll('.kanban-board');
+      var state = [];
+
+      boards.forEach(function (board) {
+        var boardId = board.dataset.id;
+        var items = board.querySelectorAll('.kanban-item');
+        var itemList = [];
+
+        items.forEach(function (item) {
+          var itemId = item.dataset.eid;
+         
+          itemList.push({
+            id: itemId,
+            order: parseInt(item.dataset.order),
+            mainId: boardId
+          });
+        });
+
+        var boardOrder = parseInt(board.getAttribute('data-order'));
+        state.push({
+          id: boardId,
+          items: itemList,
+          order: boardOrder
+        });
+      });
+
+      return state;
+    }
+
+    KanbanTest.options.boards.forEach(board => {
+      updateDataOrder(document.querySelector(`[data-id='${board.id}']`));
+    });
+
+    function editItem(itemId) {
+      var item = document.querySelector(`[data-eid='${itemId}']`);
+      var contentElement = item.querySelector('.kanban-content');
+
+      if (!contentElement) {
+        contentElement = item;
+      }
+      var content = contentElement.innerText;
+      var newContent = prompt('Yeni içerik girin:', content);
+    }
+
+    function deleteItem(itemId) {
+      if (confirm('Bu öğeyi silmek istediğinizden emin misiniz?')) {
+        var item = document.querySelector(`[data-eid='${itemId}']`);
+        item.remove();
+      }
+    }
+
+  </script>
+</body>
+
+</html>
